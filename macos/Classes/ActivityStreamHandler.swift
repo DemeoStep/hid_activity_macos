@@ -5,18 +5,11 @@ class ActivityStreamHandler: NSObject, FlutterStreamHandler{
     var sink: FlutterEventSink?
 
     var timer: Timer?
-    
-//     let accessEnabled = AXIsProcessTrustedWithOptions(
-//       [kAXTrustedCheckOptionPrompt.takeUnretainedValue() as String: true] as CFDictionary)
 
     func onListen(withArguments arguments: Any?, eventSink events: @escaping FlutterEventSink) -> FlutterError? {
         
         sink = events
-        
-//         if accessEnabled != true {
-//           sink!("You need to enable the keylogger in the System Prefrences")
-//         }
-        
+
         NSEvent.addGlobalMonitorForEvents(matching: NSEvent.EventTypeMask.any, handler: { [self](event: NSEvent) in
             do {
                 let arr = event.description.components(separatedBy: " ")
