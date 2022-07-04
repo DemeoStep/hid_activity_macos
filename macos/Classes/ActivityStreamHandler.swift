@@ -3,6 +3,7 @@ import FlutterMacOS
 
 class ActivityStreamHandler: NSObject, FlutterStreamHandler{
     var sink: FlutterEventSink?
+
     var timer: Timer?
     
     let accessEnabled = AXIsProcessTrustedWithOptions(
