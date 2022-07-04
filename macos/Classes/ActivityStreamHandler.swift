@@ -5,6 +5,8 @@ class ActivityStreamHandler: NSObject, FlutterStreamHandler{
     var sink: FlutterEventSink?
 
     var timer: Timer?
+
+    //TODO Check permissions periodically until not granted
     
     let accessEnabled = AXIsProcessTrustedWithOptions(
     [kAXTrustedCheckOptionPrompt.takeUnretainedValue() as String: true] as CFDictionary)
