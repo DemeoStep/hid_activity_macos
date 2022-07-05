@@ -52,7 +52,7 @@ class ActivityStreamHandler: NSObject, FlutterStreamHandler{
         if(AXIsProcessTrusted() == false) {
             AXIsProcessTrustedWithOptions(
                     [kAXTrustedCheckOptionPrompt.takeUnretainedValue() as String: true] as CFDictionary)
-            self.sink!("You need to enable the keylogger in the System Preferences")
+            self.sink!("You must grant Accessibility permissions to this app in the System Preferences")
             if #available(macOS 10.12, *) {
                 timer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) {timer in
                     if (AXIsProcessTrusted() == true) {
