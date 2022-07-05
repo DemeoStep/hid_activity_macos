@@ -2,14 +2,16 @@
 
 Track macOS HID activity
 
-## Getting Started
+## Features
 
-This project is a starting point for a Flutter
-[plug-in package](https://flutter.dev/developing-packages/),
-a specialized package that includes platform-specific implementation code for
-Android and/or iOS.
+- stream HID events such as mouse activity or keyboard key press on macOS
+- request & check accessibility permissions
 
-For help getting started with Flutter development, view the
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Prepare
 
+Your app must not run in sandbox. Change in DebugProfile.entitlements and Release.entitlements:
+
+```
+<key>com.apple.security.app-sandbox</key>
+	<false/>
+```
