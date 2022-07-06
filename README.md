@@ -1,6 +1,6 @@
 # hid_activity_macos
 
-Track macOS HID activity
+Detect macOS HID activity
 
 ## Features
 

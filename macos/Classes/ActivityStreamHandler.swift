@@ -10,34 +10,35 @@ class ActivityStreamHandler: NSObject, FlutterStreamHandler{
         NSEvent.addGlobalMonitorForEvents(matching: NSEvent.EventTypeMask.any, handler: { [self](event: NSEvent) in
                 do {
                     let arr = event.description.components(separatedBy: " ")
+                    sink!("\(arr[1])")
                     
-                    switch arr[1] {
-                    case ("type=KeyDown"):
-                        sink!("Keyboard key pressed")
-                    case ("type=KeyUp"):
-                        sink!("Keyboard key pressed")
-                    case ("type=SysDefined"):
-                        sink!("Keyboard key pressed")
-                    default:
-                        sink!("Mouse activity")
-                    }
+//                    switch arr[1] {
+//                    case ("type=KeyDown"):
+//                        sink!("Keyboard key pressed")
+//                    case ("type=KeyUp"):
+//                        sink!("Keyboard key pressed")
+//                    case ("type=SysDefined"):
+//                        sink!("Keyboard key pressed")
+//                    default:
+//                        sink!("Mouse activity")
+//                    }
             }
         })
         
         NSEvent.addLocalMonitorForEvents(matching: NSEvent.EventTypeMask.any, handler: { [self](event: NSEvent) in
                 do {
                     let arr = event.description.components(separatedBy: " ")
-
-                    switch arr[1] {
-                    case "type=KeyDown":
-                        sink!("Keyboard key pressed")
-                    case ("type=KeyUp"):
-                        sink!("Keyboard key pressed")
-                    case ("type=SysDefined"):
-                        sink!("Keyboard key pressed")
-                    default:
-                        sink!("Mouse activity")
-                    }
+                    sink!("\(arr[1])")
+//                    switch arr[1] {
+//                    case "type=KeyDown":
+//                        sink!("Keyboard key pressed")
+//                    case ("type=KeyUp"):
+//                        sink!("Keyboard key pressed")
+//                    case ("type=SysDefined"):
+//                        sink!("Keyboard key pressed")
+//                    default:
+//                        sink!("Mouse activity")
+//                    }
             }
             
             return event
@@ -61,6 +62,8 @@ class ActivityStreamHandler: NSObject, FlutterStreamHandler{
                     }
                 }
             }
+        } else {
+            startMonitors()
         }
         
         return nil
