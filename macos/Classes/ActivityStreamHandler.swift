@@ -9,36 +9,13 @@ class ActivityStreamHandler: NSObject, FlutterStreamHandler{
     func startMonitors() {
         NSEvent.addGlobalMonitorForEvents(matching: NSEvent.EventTypeMask.any, handler: { [self](event: NSEvent) in
                 do {
-                    let arr = event.description.components(separatedBy: " ")
-                    sink!("\(arr[1])")
-                    
-//                    switch arr[1] {
-//                    case ("type=KeyDown"):
-//                        sink!("Keyboard key pressed")
-//                    case ("type=KeyUp"):
-//                        sink!("Keyboard key pressed")
-//                    case ("type=SysDefined"):
-//                        sink!("Keyboard key pressed")
-//                    default:
-//                        sink!("Mouse activity")
-//                    }
+                    sink!("\(event.description)")
             }
         })
         
         NSEvent.addLocalMonitorForEvents(matching: NSEvent.EventTypeMask.any, handler: { [self](event: NSEvent) in
                 do {
-                    let arr = event.description.components(separatedBy: " ")
-                    sink!("\(arr[1])")
-//                    switch arr[1] {
-//                    case "type=KeyDown":
-//                        sink!("Keyboard key pressed")
-//                    case ("type=KeyUp"):
-//                        sink!("Keyboard key pressed")
-//                    case ("type=SysDefined"):
-//                        sink!("Keyboard key pressed")
-//                    default:
-//                        sink!("Mouse activity")
-//                    }
+                    sink!("\(event.description)")
             }
             
             return event

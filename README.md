@@ -1,6 +1,6 @@
 # hid_activity_macos
 
-Detect macOS HID activity
+Stream macOS HID activity to Flutter
 
 ## Features
 

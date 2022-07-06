@@ -1,6 +1,6 @@
 name: hid_activity_macos
 description: Track macOS HID activity
-version: 0.0.1
+version: 0.0.2
 repository: https://github.com/DemeoStep/hid_activity_macos
 
 environment:
